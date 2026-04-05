@@ -1,0 +1,31 @@
+MICROSOFT HR PEOPLE ANALYTICS - DATA DICTIONARY
+
+Table 1: employee_records
+- employee_id: unique employee identifier
+- age: employee age in years
+- gender: employee gender category
+- location: primary office/city
+- department: functional department
+- job_role: role within department
+- tenure_months: employee tenure in months
+- salary: annual salary in USD
+- performance_rating: performance score from 2 to 5
+- engagement_score: employee engagement score from 25 to 98
+- promotion_last_2yrs: 1 if promoted in the last 2 years, else 0
+- remote_status: Remote, Hybrid, or Onsite
+- attrition: Yes if employee exited / at risk event simulated, else No
+
+Table 2: employee_surveys
+- survey_id: unique survey response identifier
+- employee_id: employee identifier linking to employee_records
+- survey_date: survey submission date
+- satisfaction_score: employee satisfaction score from 1 to 10
+- work_life_balance_score: work-life balance score from 1 to 10
+- manager_effectiveness_score: manager effectiveness score from 1 to 10
+
+Dataset notes
+- employee_records contains one row per employee
+- employee_surveys contains 1 to 3 survey responses per employee
+- the data is synthetic and designed for portfolio analysis
+- attrition is influenced by engagement, tenure, department, promotion history, performance, work arrangement, and salary
+- survey scores are loosely correlated with engagement

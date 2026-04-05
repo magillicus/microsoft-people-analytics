@@ -42,7 +42,6 @@ SELECT
     SUM(CASE WHEN manager_effectiveness_score IS NULL THEN 1 ELSE 0 END) AS null_manager_effectiveness_score
 FROM employee_surveys;
 
-
 -- 7. Distinct dimensions
 SELECT DISTINCT department
 FROM employee_records
@@ -60,7 +59,6 @@ SELECT DISTINCT performance_rating
 FROM employee_records
 ORDER BY performance_rating;
 
-
 -- 8. Value ranges
 SELECT
     MIN(age) AS min_age,
@@ -73,7 +71,6 @@ SELECT
     MAX(engagement_score) AS max_engagement
 FROM employee_records;
 
-
 -- 9. Employee count by department
 SELECT
     department,
@@ -81,7 +78,6 @@ SELECT
 FROM employee_records
 GROUP BY department
 ORDER BY employee_count DESC;
-
 
 -- 10. Employee distribution by remote status
 SELECT
@@ -91,14 +87,12 @@ FROM employee_records
 GROUP BY remote_status
 ORDER BY employee_count DESC;
 
-
 -- 11. Attrition distribution
 SELECT
     attrition,
     COUNT(*) AS employee_count
 FROM employee_records
 GROUP BY attrition;
-
 
 -- 12. Validate table join coverage
 SELECT
@@ -107,7 +101,6 @@ SELECT
 FROM employee_records e
 LEFT JOIN employee_surveys s
     ON e.employee_id = s.employee_id;
-
 
 -- 13. Survey response count per employee
 SELECT

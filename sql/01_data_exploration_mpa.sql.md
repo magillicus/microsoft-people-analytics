@@ -1,10 +1,3 @@
-/*
-File: 01_data_exploration.sql
-Purpose: Perform initial data validation, structure review, and exploratory checks
-Project: Microsoft HR Data Analyst, People Analytics Portfolio Project
-Author: Marcus Gillis
-*/
-
 -- 1. Row count confirmation (both tables)
 SELECT COUNT(*) AS employee_row_count
 FROM employee_records;

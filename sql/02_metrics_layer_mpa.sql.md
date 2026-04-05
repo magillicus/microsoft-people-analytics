@@ -1,10 +1,3 @@
-/*
-File: 02_metrics_layer.sql
-Purpose: Define core people analytics KPIs and reusable summary views
-Project: Microsoft HR Data Analyst, People Analytics Portfolio Project
-Author: Marcus Gillis
-*/
-
 -- 1. Core KPIs
 SELECT
     COUNT(*) AS total_employees,

@@ -8,8 +8,7 @@ FROM employee_records
 GROUP BY department
 ORDER BY attrition_rate_pct DESC;
 
-
--- 2. Attrition by job role
+-- 2. Attrition by role
 SELECT
     job_role,
     COUNT(*) AS total_employees,
@@ -19,7 +18,6 @@ FROM employee_records
 GROUP BY job_role
 HAVING COUNT(*) >= 100
 ORDER BY attrition_rate_pct DESC, total_employees DESC;
-
 
 -- 3. Attrition by tenure (bins)
 SELECT
@@ -44,16 +42,18 @@ ORDER BY
         ELSE 5
     END;
 
-
 -- 4. Attrition by promotion history
 SELECT
-    promotion_last_2yrs,
+    CASE
+        WHEN promotion_last_2yrs = 1 THEN 'Promoted in Last 2 Years'
+        ELSE 'No Recent Promotion'
+    END AS promotion_status,
     COUNT(*) AS total_employees,
     SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) AS attrition_count,
     ROUND(100.0 * SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) / COUNT(*), 2) AS attrition_rate_pct
 FROM employee_records
-GROUP BY promotion_last_2yrs;
-
+GROUP BY promotion_status
+ORDER BY attrition_rate_pct DESC;
 
 -- 5. Attrition by remote status
 SELECT

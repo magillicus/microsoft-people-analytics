@@ -118,3 +118,11 @@ excel/
 tableau/
 presentation/
 README.md
+
+```
+## Portfolio Purpose
+
+This project is part of a broader portfolio strategy focused on building role-specific analytics case studies. Rather than relying solely on a resume, this repository demonstrates:
+
+- Practical analytical thinking
+- Ability to translate workforce data into business insight

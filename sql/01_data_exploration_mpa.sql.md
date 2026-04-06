@@ -1,27 +1,17 @@
--- 1. Row count confirmation (both tables)
+-- 1. Row counts (both tables)
 SELECT COUNT(*) AS employee_row_count
 FROM employee_records;
 
 SELECT COUNT(*) AS survey_row_count
 FROM employee_surveys;
 
--- 2. Preview employee_records
-SELECT *
-FROM employee_records
-LIMIT 10;
-
--- 3. Preview employee_surveys
-SELECT *
-FROM employee_surveys
-LIMIT 10;
-
--- 4. Check for duplicate employee IDs in employee_records
+-- 2. Check for duplicate employee IDs
 SELECT employee_id, COUNT(*) AS record_count
 FROM employee_records
 GROUP BY employee_id
 HAVING COUNT(*) > 1;
 
--- 5. Null checks for key employee fields
+-- 3. Null checks for key employee fields
 SELECT
     SUM(CASE WHEN employee_id IS NULL THEN 1 ELSE 0 END) AS null_employee_id,
     SUM(CASE WHEN department IS NULL THEN 1 ELSE 0 END) AS null_department,
@@ -32,7 +22,7 @@ SELECT
     SUM(CASE WHEN attrition IS NULL THEN 1 ELSE 0 END) AS null_attrition
 FROM employee_records;
 
--- 6. Null checks for survey fields
+-- 4. Null checks for survey fields
 SELECT
     SUM(CASE WHEN survey_id IS NULL THEN 1 ELSE 0 END) AS null_survey_id,
     SUM(CASE WHEN employee_id IS NULL THEN 1 ELSE 0 END) AS null_employee_id,
@@ -42,71 +32,37 @@ SELECT
     SUM(CASE WHEN manager_effectiveness_score IS NULL THEN 1 ELSE 0 END) AS null_manager_effectiveness_score
 FROM employee_surveys;
 
--- 7. Distinct dimensions
-SELECT DISTINCT department
-FROM employee_records
-ORDER BY department;
-
-SELECT DISTINCT remote_status
-FROM employee_records
-ORDER BY remote_status;
-
-SELECT DISTINCT attrition
-FROM employee_records
-ORDER BY attrition;
-
-SELECT DISTINCT performance_rating
-FROM employee_records
-ORDER BY performance_rating;
-
--- 8. Value ranges
+-- 5. Value ranges
 SELECT
     MIN(age) AS min_age,
     MAX(age) AS max_age,
-    MIN(tenure_months) AS min_tenure,
-    MAX(tenure_months) AS max_tenure,
+    MIN(tenure_months) AS min_tenure_months,
+    MAX(tenure_months) AS max_tenure_months,
     MIN(salary) AS min_salary,
     MAX(salary) AS max_salary,
-    MIN(engagement_score) AS min_engagement,
-    MAX(engagement_score) AS max_engagement
+    MIN(engagement_score) AS min_engagement_score,
+    MAX(engagement_score) AS max_engagement_score
 FROM employee_records;
 
--- 9. Employee count by department
-SELECT
-    department,
-    COUNT(*) AS employee_count
+-- 6. Category distributions
+SELECT department, COUNT(*) AS employee_count
 FROM employee_records
 GROUP BY department
 ORDER BY employee_count DESC;
 
--- 10. Employee distribution by remote status
-SELECT
-    remote_status,
-    COUNT(*) AS employee_count
+SELECT remote_status, COUNT(*) AS employee_count
 FROM employee_records
 GROUP BY remote_status
 ORDER BY employee_count DESC;
 
--- 11. Attrition distribution
-SELECT
-    attrition,
-    COUNT(*) AS employee_count
+SELECT attrition, COUNT(*) AS employee_count
 FROM employee_records
 GROUP BY attrition;
 
--- 12. Validate table join coverage
+-- 7. 1:1 Employee to surveys check
 SELECT
     COUNT(DISTINCT e.employee_id) AS employees_in_employee_table,
-    COUNT(DISTINCT s.employee_id) AS employees_in_survey_table
+    COUNT(DISTINCT s.employee_id) AS employees_with_surveys
 FROM employee_records e
 LEFT JOIN employee_surveys s
     ON e.employee_id = s.employee_id;
-
--- 13. Survey response count per employee
-SELECT
-    employee_id,
-    COUNT(*) AS survey_count
-FROM employee_surveys
-GROUP BY employee_id
-ORDER BY survey_count DESC, employee_id
-LIMIT 20;

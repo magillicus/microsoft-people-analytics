@@ -39,7 +39,7 @@ This analysis is intended to:
 ---
 
 ## Dataset
-This project uses a **synthetic HR dataset** created specifically for portfolio purposes.
+This project uses a **synthetic HR dataset** generated specifically for portfolio purposes.
 
 ### Tables
 

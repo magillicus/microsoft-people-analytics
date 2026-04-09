@@ -5,6 +5,9 @@ End-to-end people analytics case study analyzing employee attrition and engageme
 
 This project simulates a real-world HR analytics scenario, translating workforce data into business recommendations focused on improving employee retention.
 
+## Dashboard Preview
+<img width="958" height="524" alt="People Analytics Dashboard Screenshot" src="https://github.com/user-attachments/assets/425f92c4-1e6a-4308-ba0a-9b04ef65a689" />
+
 ---
 
 ## Key Insights

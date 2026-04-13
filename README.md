@@ -61,11 +61,24 @@ Synthetic HR dataset designed to replicate real-world workforce analytics scenar
 ## Repository Structure
 ```bash
 data/
+  data_dictionary.txt
+  employee_records.csv
+  employee_surveys.csv
+  microsoft_people_analytics.sqlite
 sql/
+  01_data_exploration_mpa.sql.md
+  02_metrics_layer_mpa.sql.md
+  03_attrition_analysis.sql.md
+  04_engagement_and_survey_analysis.sql.md
+  05_high_risk_segment_analysis.sql.md
 python/
+  01_people_analytics_exploration.ipynb
 excel/
+  people_analytics_outputs.xlsx
 tableau/
+  HR People Analytics Dashboard.twb
 presentation/
+  AIrsoft Employee Attrition and Engagement Deck.pdf
 README.md
 ```
 

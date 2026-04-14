@@ -6,7 +6,7 @@ End-to-end people analytics case study analyzing employee attrition and engageme
 This project simulates a real-world HR analytics scenario, translating workforce data into business recommendations focused on improving employee retention.
 
 ## Dashboard Preview
-<img width="949" height="524" alt="People Analytics Dashboard Screenshot" src="https://github.com/user-attachments/assets/297e24e4-d67e-46de-a7c6-3ab37f1a023b" />
+<img width="952" height="525" alt="People Analytics Dashboard Screenshot" src="https://github.com/user-attachments/assets/738aa833-a443-473a-9060-c04ae3483022" />
 
 ## Executive Summary Presentation
 [AIrsoft Employee Attrition and Engagement Analysis Deck.pdf](https://github.com/user-attachments/files/26666798/AIrsoft.Employee.Attrition.and.Engagement.Analysis.Deck.pdf)
